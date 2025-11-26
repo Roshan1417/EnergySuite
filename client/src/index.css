@@ -1,0 +1,237 @@
+/* client/src/index.css
+   Corporate-pro dashboard theme (mix of Corporate + Dark premium touches)
+   - Uses Tailwind (imported first for utilities)
+   - Defines CSS variables for theme colors
+   - Adds card, container, subtle gradients, animations and accessible focus states
+*/
+
+/* Tailwind v4 import (required) */
+@import "tailwindcss";
+
+/* ---------- Theme variables (light + dark mix) ---------- */
+:root{
+  --bg: #0f1724;            /* deep navy background */
+  --panel: #0b1220;         /* card background (dark) */
+  --muted: #94a3b8;         /* muted text */
+  --text: #e6eef8;          /* main text */
+  --accent: #2563eb;        /* primary blue */
+  --accent-2: #7c3aed;      /* secondary indigo */
+  --success: #10b981;       /* success green */
+  --danger: #ef4444;        /* danger red */
+  --glass: rgba(255,255,255,0.03);
+
+  /* elevation shadows */
+  --shadow-sm: 0 1px 2px rgba(2,6,23,0.6);
+  --shadow-md: 0 8px 24px rgba(2,6,23,0.55);
+  --shadow-lg: 0 20px 50px rgba(2,6,23,0.6);
+}
+
+/* Light-mode variables to optionally support toggling later */
+:root.light {
+  --bg: #f7fafc;
+  --panel: #ffffff;
+  --muted: #6b7280;
+  --text: #0f1724;
+  --accent: #0ea5e9;
+  --accent-2: #6366f1;
+  --glass: rgba(15,23,36,0.03);
+  --shadow-sm: 0 1px 2px rgba(16,24,40,0.04);
+  --shadow-md: 0 8px 24px rgba(16,24,40,0.08);
+  --shadow-lg: 0 30px 80px rgba(16,24,40,0.10);
+}
+
+/* ---------- Page base ---------- */
+html,body,#root{
+  height:100%;
+  margin:0;
+  padding:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  background: linear-gradient(180deg, rgba(8,10,15,1) 0%, rgba(10,14,20,1) 60%), var(--bg);
+  color: var(--text);
+  transition: background 250ms ease, color 250ms ease;
+}
+
+/* nice centered app container */
+.app-container{
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 28px;
+}
+
+/* Top navigation wrapper (we'll use Tailwind classes too) */
+.top-nav {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+/* small logo placeholder */
+.app-logo {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  color:var(--text);
+}
+.app-logo .brand-mark {
+  width:36px;
+  height:36px;
+  border-radius:8px;
+  background: linear-gradient(135deg,var(--accent),var(--accent-2));
+  box-shadow: 0 6px 18px rgba(37,99,235,0.14);
+}
+
+/* ---------- Cards & UI primitives ---------- */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: transform 220ms cubic-bezier(.2,.9,.3,1), box-shadow 220ms ease;
+}
+
+/* Card hover pop */
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Smaller card */
+.card-sm {
+  padding: 12px;
+  border-radius: 12px;
+}
+
+/* Page heading */
+.page-title{
+  font-size: clamp(1.4rem, 2.6vw, 3rem);
+  font-weight:800;
+  margin: 6px 0 18px 0;
+  letter-spacing: -0.02em;
+}
+
+/* Section subtitle */
+.section-sub {
+  font-weight:600;
+  margin-bottom:10px;
+  color: var(--muted);
+}
+
+/* subtle divider */
+.hr {
+  height:1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  margin: 12px 0;
+  border-radius: 1px;
+}
+
+/* nice rounded input styles that play with tailwind classes */
+.input {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--text);
+  outline:none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+.input:focus{
+  border-color: var(--accent);
+  box-shadow: 0 6px 20px rgba(37,99,235,0.08);
+}
+
+/* button primary */
+.btn-primary {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background: linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border:none;
+  cursor:pointer;
+  transition: transform 140ms ease, box-shadow 160ms ease;
+  box-shadow: 0 8px 22px rgba(37,99,235,0.12);
+}
+.btn-primary:hover{ transform: translateY(-3px); box-shadow: 0 18px 48px rgba(37,99,235,0.16); }
+
+/* secondary / ghost */
+.btn-ghost {
+  background: transparent;
+  border: 1px dashed rgba(255,255,255,0.04);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+/* badge helper */
+.badge {
+  padding: 6px 8px;
+  border-radius: 999px;
+  font-weight:600;
+  font-size:0.8rem;
+  display:inline-block;
+}
+.badge-high { background: linear-gradient(90deg,#ef4444,#f97316); color: white; }
+.badge-normal { background: linear-gradient(90deg,#f59e0b,#fbbf24); color: #111827; }
+.badge-low { background: linear-gradient(90deg,#10b981,#34d399); color: white; }
+
+/* small util helpers */
+.flex-center { display:flex; align-items:center; justify-content:center; }
+.col-gap { display:flex; gap:12px; align-items:center; }
+.kv { color:var(--muted); font-size:0.95rem; }
+
+/* responsive chart wrapper */
+.chart-wrap {
+  width: 100%;
+  height:320px;
+  border-radius: 10px;
+  padding: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  border: 1px dashed rgba(255,255,255,0.03);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* subtle entrance animations */
+.fade-in {
+  animation: fadeInUp 600ms ease both;
+}
+@keyframes fadeInUp {
+  from { opacity:0; transform: translateY(10px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* small pop for list items */
+.pop {
+  transition: transform 180ms ease, box-shadow 160ms ease;
+}
+.pop:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+/* nice scrollbar for desktop */
+::-webkit-scrollbar { width: 12px; height:12px; }
+::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); border-radius:8px; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border-radius:8px; border: 3px solid transparent; background-clip: padding-box; }
+
+/* focus outline accessible */
+:focus { outline: 3px solid rgba(37,99,235,0.12); outline-offset: 2px; }
+
+/* small utility for center column layout used in dashboard */
+.center-column {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+/* responsive tweaks */
+@media (min-width: 1024px){
+  .app-container { padding: 36px; }
+  .chart-wrap { height:360px; }
+}
