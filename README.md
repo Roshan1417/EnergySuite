@@ -228,3 +228,5 @@ A blend of human creativity + AI intelligence, just like modern SaaS tools.
 Shaik Roshan
 Full-Stack Developer | React | Node | UI/UX | Cloud
 GitHub: https://github.com/Roshan1417
+🔗 Live Frontend: https://gleaming-cheesecake-4c2dc6.netlify.app  
+🔗 Live Backend API: https://energysuite.onrender.com
