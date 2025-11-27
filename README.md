@@ -124,7 +124,7 @@ energy-efficiency-task-manager/
 ## 🔧 Setup Instructions
 
 ### **1️⃣ Clone the repository**
-```bash
+bash
 git clone <your-repo-url>
 cd energy-efficiency-task-manager
 2️⃣ Install Frontend Dependencies
@@ -167,25 +167,6 @@ cd client
 npm run build
 
 
-Drag & drop the dist/ folder into Netlify.
-
-Done. Live instantly. 🎉
-
-Backend (Express) – Render
-
-Push project to GitHub
-
-Go to Render → New Web Service
-
-Select the /server folder
-
-Set:
-
-Build Command: npm install
-Start Command: node index.js
-
-
-Deploy 🚀
 
 🧠 Bonus Features Implemented
 
@@ -221,7 +202,12 @@ A blend of human creativity + AI intelligence, just like modern SaaS tools.
 
 📸 Screenshots
 
-(Add your dashboard screenshots here)
+<img width="2938" height="1598" alt="image" src="https://github.com/user-attachments/assets/fddcd0b3-9d0d-4ea1-82cf-ac0096c76379" />
+
+<img width="2940" height="1598" alt="image" src="https://github.com/user-attachments/assets/d702f219-5de7-4036-8837-dde894b88b13" />
+
+<img width="2940" height="1592" alt="image" src="https://github.com/user-attachments/assets/26c8d365-bb78-47c5-be04-2220f5517ee1" />
+
 
 🤝 Author
 
