@@ -6,7 +6,11 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "postinstall": "npm rebuild sqlite3",
     "test": "echo \"No tests configured\""
+  },
+  "engines": {
+    "node": "18.x"
   },
   "keywords": [],
   "author": "",
